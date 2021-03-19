@@ -38,7 +38,7 @@ const workoutTrack = new Schema(
   },
   {
     toJSON: {
-   
+
       virtuals: true
     }
   }
@@ -46,7 +46,7 @@ const workoutTrack = new Schema(
 
 // totalDuration function
 workoutTrack.virtual("totalDuration").get(function () {
- 
+
   return this.exercises.reduce((total, exercise) => {
     return total + exercise.duration;
   }, 0);
