@@ -1,10 +1,10 @@
 // Require workout model
-const Workout = require("../models/Workouts")
+const Workout = require("../models/workout")
 
 module.exports = (app) => {
 
     // Find all workouts
-    app.get("/api/workouts", (req, res) => {
+    app.get("/api/workout", (req, res) => {
         Workout.aggregate([
             {
                 $limit: 7,
@@ -24,7 +24,7 @@ module.exports = (app) => {
 });
 
     // post workout
-    app.post("/api/workouts", (req, res) => {
+    app.post("/api/workout", (req, res) => {
         Workout.create({
             exercises: [
                 req.body,
@@ -37,7 +37,7 @@ module.exports = (app) => {
     });
 
     // Add exercise to workouts 
-    app.put("/api/workouts/:id", (req, res) => {
+    app.put("/api/workout/:id", (req, res) => {
         Workout.findOneAndUpdate(
             {
                 _id: req.params.id,
@@ -55,8 +55,8 @@ module.exports = (app) => {
        res.json(error)
    } )});
 
-   // get  workouts range from database
-   app.get("/api/workouts/range", (req, res) => {
+   // get  workout range from database
+   app.get("/api/workout/range", (req, res) => {
     Workout.aggregate([
         {
             $limit: 7,
@@ -68,8 +68,8 @@ module.exports = (app) => {
                 }
             }
         }
-    ]).then((Workouts) => {
-        res.json(Workouts);
+    ]).then((workout) => {
+        res.json(workout);
    }).catch((error) => {
        res.json(error)
    })
