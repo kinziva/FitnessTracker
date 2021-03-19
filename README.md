@@ -9,6 +9,7 @@ This is a workout tracker app utilize Mongo database with a Mongoose schema and 
 
 ![Fitness Tracker - Completed Workout Results](./public/assets/images/newWworkout.JPG)
 
+![Fitness Tracker - Workout Dashboard](./public/assets/images/workoutDashboard.JPG)
 
 ## User Story
 
